@@ -20,6 +20,9 @@ export PATH="$PATH:`go env GOPATH`/bin"
 export PATH="$PATH:$PYTHON"
 export PATH="$PATH:$JAVA_HOME/bin"
 
+# export fpath=($ASDF_DATA_DIR/completions: $fpath)
+# export MANPATH="/usr/local/man:$MANPATH"
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -32,12 +35,12 @@ fi
 alias gai='ga -i'
 alias ls="lsd -l"
 alias kd="kitten diff"
-alias v="fd --type f --hidden --exclude .git | fuzzyp --reverse --exit-0| xargs -r nvim"
 alias fp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias v="fd --type f --hidden --exclude .git | fp --reverse --exit-0| xargs -r nvim"
 alias slp="sleep 1 && xset dpms force off"
 alias suroot="sudo -E -s"
 alias cat=bat
-
+alias psh="pipenv shell"
 
 ZSH_THEME="spaceship"
 spaceship_prompt_order=(
@@ -79,7 +82,7 @@ zinit light zsh-users/zsh-completions
 zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit load zdharma-continuum/history-search-multi-word
-# Add in snippets
+##Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
@@ -87,7 +90,7 @@ zinit snippet OMZP::copypath
 zinit snippet OMZP::copyfile
 zinit snippet OMZP::colored-man-pages
 # zinit snippet OMZP::asdf
-zinit snippet OMZP::pipenv
+# zinit snippet OMZP::pipenv
 zinit snippet OMZP::gitignore
 zinit snippet OMZP::command-not-found
 
@@ -122,7 +125,7 @@ bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
-
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
+eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
