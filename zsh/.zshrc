@@ -4,7 +4,7 @@
 # User configuration
 export PATH="$HOME/.local/kitty.app/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="$ASDF_DATA_DIR:$HOME/.asdf/shims:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH=$PATH:$HOME/.cargo/bin 
@@ -16,9 +16,12 @@ export PYTHON="$HOME/.asdf/shims/python"
 export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_CTRL_T_COMMAND="fd -E '.git' -E 'node_modules' -E 'Games'"
 export FZF_ALT_C_COMMAND="$FZF_CTRL_T_COMMAND"
-export PATH="$PATH:`go env GOPATH`/bin"
+export GOPATH="$PATH: /home/guilhermet/.asdf/installs/golang/1.24.3/packages"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOPATH"
 export PATH="$PATH:$PYTHON"
 export PATH="$PATH:$JAVA_HOME/bin"
+export BAT_THEME="ansi"
 
 # export fpath=($ASDF_DATA_DIR/completions: $fpath)
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -32,6 +35,7 @@ fi
 #
 #alias uteis
 #
+alias esc2caps="setxkbmap -option caps:escape"
 alias gai='ga -i'
 alias ls="lsd -l"
 alias kd="kitten diff"
