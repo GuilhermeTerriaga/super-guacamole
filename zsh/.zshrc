@@ -103,8 +103,6 @@ zinit snippet OMZP::colored-man-pages
 zinit snippet OMZP::gitignore
 zinit snippet OMZP::command-not-found
 
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
-autoload -Uz compinit && compinit
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -119,11 +117,18 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no 
+zstyle ':completion:*' menu yes 
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':omz:plugins:pipenv' auto-shell no
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 # history substring
 autoload -Uz history-search-end
@@ -174,3 +179,4 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
+zinit cdreplay -q
