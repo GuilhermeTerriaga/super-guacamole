@@ -16,7 +16,7 @@ export PYTHON="$HOME/.asdf/shims/python"
 export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_CTRL_T_COMMAND="fd -E '.git' -E 'node_modules' -E 'Games'"
 export FZF_ALT_C_COMMAND="$FZF_CTRL_T_COMMAND"
-export GOPATH="/home/guilhermet/.asdf/installs/golang/1.24.3/packages"
+export GOPATH="$HOME/.asdf/installs/golang/1.24.3/packages"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$GOPATH"
 export PATH="$PATH:$PYTHON"
@@ -33,9 +33,11 @@ else
   export EDITOR='nvim'
 fi
 
+source "$HOME/.walias.zsh"
 #
 #alias uteis
 #
+alias codium="codium --ozone-platform=wayland --new-window"
 alias esc2caps="setxkbmap -option caps:escape"
 alias gai='ga -i'
 alias ls="lsd -l"
@@ -46,6 +48,7 @@ alias pgclids="pgcli --list-dsn | fzf | xargs -oe pgcli --dsn"
 alias slp="sleep 1 && xset dpms force off"
 alias suroot="sudo -E -s"
 alias cat=bat
+alias catp="cat -p"
 alias psh="pipenv shell"
 
 ZSH_THEME="spaceship"
