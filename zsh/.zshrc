@@ -126,6 +126,7 @@ zstyle ':completion:*' menu yes
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':omz:plugins:pipenv' auto-shell no
 autoload -Uz compinit
+autoload -U +X bashcompinit && bashcompinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 	compinit;
 else
@@ -182,3 +183,5 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 zinit cdreplay -q
+
+complete -o nospace -C /usr/bin/terraform terraform
