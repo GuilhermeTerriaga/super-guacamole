@@ -51,6 +51,7 @@ alias suroot="sudo -E -s"
 alias cat=bat
 alias catp="cat -p"
 alias psh="pipenv shell"
+alias cloudspeed="cloudflare-speed-cli"
 
 ZSH_THEME="spaceship"
 spaceship_prompt_order=(
