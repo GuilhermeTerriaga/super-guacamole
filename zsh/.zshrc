@@ -5,9 +5,10 @@ export PATH="$HOME/.local/kitty.app/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$ASDF_DATA_DIR:$HOME/.asdf/shims:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/snap/bin"
 # export PATH=$PATH:$HOME/.cargo/bin 
-export CDPATH=.:..:$HOME
 export PATH="$PATH:$ASDF_DATA_DIR/installs/python/3.12.7/lib/python3.12/site-packages"
 export COWPATH="$COWPATH:$HOME/.cowsay/cowfiles"
 fortune -s| cowsay -f duck
