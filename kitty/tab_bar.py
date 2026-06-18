@@ -2,12 +2,19 @@
 
 from kitty.boss import get_boss
 from kitty.fast_data_types import Screen, add_timer, get_options
-from kitty.tab_bar import (DrawData, ExtraData, Formatter, TabBarData, as_rgb,
-                           draw_attributed_string, draw_title)
+from kitty.tab_bar import (
+    DrawData,
+    ExtraData,
+    Formatter,
+    TabBarData,
+    as_rgb,
+    draw_attributed_string,
+    draw_title,
+)
 from kitty.utils import color_as_int
 
 opts = get_options()
-icon_fg = as_rgb(color_as_int(opts.color16))
+icon_fg = as_rgb(color_as_int(opts.background))
 icon_bg = as_rgb(color_as_int(opts.color1))
 bat_text_color = as_rgb(color_as_int(opts.color15))
 clock_color = as_rgb(color_as_int(opts.color15))
